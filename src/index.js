@@ -1,17 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
+
+// CSSs Globais
+import './assets/css/reset.css';
+import './assets/css/container.css';
+import './assets/css/btn.css';
+import './assets/css/icon.css';
+import './assets/css/iconHeart.css';
+import './assets/css/notificacao.css';
+
+import './assets/css/novoTweet.css';
+// import './index.css';
+
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+
+import * as serviceWorker from './serviceWorker';
+import NotFoundPage from './pages/NotFoundPage';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route path="/login" component={LoginPage} />
+      <Route component={NotFoundPage} />
+    </Switch>
+  </BrowserRouter>,
+  document.getElementById('root'),
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
