@@ -15,18 +15,22 @@ import './assets/css/novoTweet.css';
 
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import NotFoundPage from './pages/NotFoundPage';
+import Notificacao from './components/Notificacao';
+import PrivateRoute from './routes/PrivateRoute';
 
 import * as serviceWorker from './serviceWorker';
-import NotFoundPage from './pages/NotFoundPage';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route path="/login" component={LoginPage} />
-      <Route component={NotFoundPage} />
-    </Switch>
-  </BrowserRouter>,
+  <Notificacao>
+    <BrowserRouter>
+      <Switch>
+        <PrivateRoute exact path="/" component={HomePage} />
+        <Route path="/login" component={LoginPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </BrowserRouter>
+  </Notificacao>,
   document.getElementById('root'),
 );
 

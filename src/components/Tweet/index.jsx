@@ -1,17 +1,13 @@
 import './tweet.css';
 
-function Tweet({ text }) {
+function Tweet({ text, id, usuario }) {
   return (
     <article className="tweet">
       <div className="tweet__cabecalho">
-        <img
-          className="tweet__fotoUsuario"
-          src="https://placehold.it/50x50"
-          alt=""
-        />
-        <span className="tweet__nomeUsuario">Fulano de Tal</span>
+        <img className="tweet__fotoUsuario" src={usuario.foto} alt="" />
+        <span className="tweet__nomeUsuario">{usuario.nome}</span>
         <a href="/">
-          <span className="tweet__userName">@usuario</span>
+          <span className="tweet__userName">{usuario.login}</span>
         </a>
       </div>
       <p className="tweet__conteudo">{text}</p>
